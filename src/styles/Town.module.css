@@ -1,0 +1,92 @@
+.container {
+  position: absolute;
+  width: 90vh;
+  height: 90vh;
+  left: 20%;
+  top: 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  background-size: contain;
+  cursor: url('/wallpers/sword.svg'),auto;
+}
+
+.marketplace {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 25%;
+  padding-top: 25%;
+}
+.townhall {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: top;
+  padding-left: 20%;
+  padding-top: 10%;
+}
+.cathedral {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  padding-left: 20%;
+  padding-bottom: 20%;
+  padding-top: 15%;
+}
+.inn {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  padding-left: 30%;
+  padding: 25%;
+  padding-bottom: 20%;
+}
+.shop {
+  width: 80vh;
+  height: 80vh;
+  position: absolute;
+  left: 3%;
+  top: 3%;
+  /* background-color: burlywood;
+    border: groove black; */
+  background-image: url('/maps/town/parchment.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 12%;
+  padding-top: 20%;
+  padding-bottom: 20%;
+}
+.closeButton {
+  height: 30px;
+  width: 30px;
+  border-radius: 9999px;
+  background-color: transparent;
+  position: absolute;
+  right: 3.5%;
+  top: 7.5%;
+  background-size: contain;
+  cursor: url('/wallpers/sword.svg'),auto;
+}
+
+.questList {
+  width: 80vh;
+  height: 80vh;
+  position: absolute;
+  left: 4%;
+  top: 3%;
+  background-image: url('/maps/town/parchment.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 12%;
+  padding-top: 20%;
+  padding-bottom: 20%;
+}

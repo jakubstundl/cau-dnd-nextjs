@@ -1,0 +1,25 @@
+.container{
+    position: absolute;
+    width: 150vh;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.chest{
+ 
+    grid-column: 2/3;
+    grid-row: 2/3;
+    position: relative;
+}
+.treasurechest{
+    width: 10%;
+    height: 12%;
+    background-image: url('/maps/town/treasure-chest.png');
+    background-size: cover;
+    position: relative;
+    bottom: 32%;
+    left: 40%;
+}

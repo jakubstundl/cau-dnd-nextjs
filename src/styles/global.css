@@ -1,0 +1,402 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url('/public/fonts/RingbearerMedium-51mgZ.ttf'); */
+@import url('https://fonts.cdnfonts.com/css/grand-hotel');
+
+@font-face {
+  font-family: 'LOTR';
+  src: url('../fonts/RingBearer.ttf');
+}
+
+.goldnohover {
+  text-shadow: 1px 1px 2px transparent, 0 0 1em gold, 0 0 0.2em white;
+}
+
+.goldeffect {
+  /*text glowing shadows without animations */
+  text-shadow: 1px 1px 2px transparent, 0 0 1em gold, 0 0 0.2em white;
+  /* text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue; */
+}
+
+.goldeffect:hover {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 0px transparent, 0 0 30px transparent, 0 0 40px gold,
+      0 0 50px transparent, 0 0 6px transparent, 0 0 70px #e27777,
+      0 0 500px #000000;
+  }
+
+  to {
+    text-shadow: 0 0 5px transparent, 0 0 2px rgb(241, 249, 242),
+      0 0 3px transparent, 0 0 4px #a38e25, 0 0 5px #dfd7ff, 0 0 6px #30d17e,
+      0 0 70px #ffffff;
+  }
+}
+/* text texture */
+.gold {
+  background: url('/fonts-images/strip.jpg') repeat center center;
+  background-size: 100px 100px;
+  background-clip: content-box;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.background {
+  /* background-color: rgb(0,0,0,0.35); */
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  position: fixed;
+  z-index: 1;
+  /* filter: blur(10px); */
+  width: 384px;
+  height: 524px;
+  border-radius: 50px;
+}
+
+.backgroundSettings {
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  position: fixed;
+  z-index: 1;
+  /* filter: blur(10px); */
+  width: 634px;
+  height: 566px;
+  border-radius: 50px;
+}
+
+input {
+  border-color: rgb(234, 178, 92);
+}
+
+hr {
+  width: 0px;
+  border-color: rgb(234, 178, 92);
+}
+
+/* Adam */
+
+:root {
+  --bg: #242526;
+  --bg-accent: #484a4d;
+  --text-color: #dadce1;
+  --nav-size: 60px;
+  --border: 1px solid #474a4d;
+  --border-radius: 8px;
+  --speed: 500ms;
+}
+
+/* ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  } */
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* Top Navigation Bar */
+
+/* <nav> */
+.navbar {
+  z-index: 100;
+  position: fixed;
+  height: var(--nav-size);
+  /* background-color: var(--bg); */
+  padding: 0 1rem;
+  z-index: 100;
+  /* border-bottom: var(--border); */
+}
+
+/* <ul> */
+.navbar-nav {
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* <li> */
+.nav-item {
+  width: calc(var(--nav-size) * 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icon Button */
+.icon-button {
+  --button-size: calc(var(--nav-size) * 0.5);
+  width: var(--button-size);
+  height: var(--button-size);
+  background-color: #484a4d;
+  border-radius: 50%;
+  padding: 5px;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 300ms;
+}
+
+.icon-button:hover {
+  filter: brightness(1.2);
+}
+
+.icon-button svg {
+  fill: var(--text-color);
+  width: 20px;
+  height: 20px;
+}
+
+/* Dropdown Menu */
+
+.dropdown {
+  position: absolute;
+  top: 58px;
+  left: -100px;
+  width: 300px;
+  transform: translateX(45%);
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  /* background-color: var(--bg); */
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  overflow: hidden;
+  transition: height var(--speed) ease;
+}
+
+.menu {
+  width: 100%;
+}
+
+.menu-item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  transition: background var(--speed);
+  padding: 0.5rem;
+  color: rgb(234, 178, 92);
+  /* background: url("/fonts-images/strip.jpg") repeat center center;
+    background-size: 100px 100px;
+    background-clip: content-box;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; */
+}
+
+.menu-item .icon-button {
+  margin-right: 0.5rem;
+}
+
+.menu-item .icon-button:hover {
+  filter: none;
+}
+
+.menu-item:hover {
+  background-color: #033200;
+}
+
+.icon-right {
+  margin-left: auto;
+}
+
+/* CSSTransition classes  */
+.menu-primary-enter {
+  position: absolute;
+  transform: translateX(-110%);
+}
+.menu-primary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-primary-exit {
+  position: absolute;
+}
+.menu-primary-exit-active {
+  transform: translateX(-110%);
+  transition: all var(--speed) ease;
+}
+
+.menu-secondary-enter {
+  transform: translateX(110%);
+}
+.menu-secondary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-secondary-exit {
+}
+.menu-secondary-exit-active {
+  transform: translateX(110%);
+  transition: all var(--speed) ease;
+}
+.container-chat {
+  float: right;
+  height: 100vh;
+  width: 15vw;
+  display: grid;
+  grid-template-rows: max-content 1fr 50px 50px;
+  border: solid;
+  border-color: goldenrod;
+  background-color: transparent;
+  grid-column: 5/6;
+  grid-row: 1/3;
+  backdrop-filter: blur(10px);
+  font-size: 20px;
+  overflow: hidden;
+}
+.parttitle {
+  padding: 2px;
+  border: solid goldenrod;
+  color: goldenrod;
+  background-color: brown;
+  border-radius: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: fit-content;
+  width: 120px;
+  text-align: center;
+}
+
+.town-button {
+  height: fit-content;
+  width: 100px;
+  padding: 2px;
+  border-radius: 15px;
+  border: solid grey;
+  color: grey;
+  background-color: darkgray;
+  opacity: 0.7;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: url('/wallpers/sword.svg'),auto;
+}
+.town-button:hover {
+  border: solid goldenrod;
+  color: goldenrod;
+  background-color: brown;
+  opacity: 1;
+}
+.leavebutton {
+  position: absolute;
+  padding: 2px;
+  border: solid grey;
+  color: grey;
+  background-color: darkgray;
+  opacity: 0.7;
+  border-radius: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: fit-content;
+  width: fit-content;
+  left: 17%;
+  top: 10px;
+}
+.leavebutton:hover {
+  border: solid darkred;
+  color: darkred;
+  opacity: 1;
+  background-color: black;
+  cursor: url('/wallpers/sword.svg'),auto;
+
+  }
+  
+/*
+trasparent input autofill 
+*/
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    /* transition: background-color 999999999999999999999999999999999999999999999999999999999999s ease-in-out 0s; */
+    transition: all 0s 50000000s; 
+}
+
+  .container-chat{
+    float:right;
+    height: 100vh;
+    width: 15vw;
+    display: grid;
+    grid-template-rows: max-content 1fr 50px 50px;
+    border: solid;
+    border-color: goldenrod;
+    background-color: transparent;
+    grid-column: 5/6;
+    grid-row: 1/3;
+    backdrop-filter: blur(10px);
+    font-size: 20px;
+    overflow: hidden;
+}
+
+.oneHero {
+  border: solid;
+  border-color:rgb(234, 178, 92);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+}
+
+.elven-parttitle {
+  padding: 2px;
+  border: solid goldenrod;
+  color: goldenrod;
+  background-color: green;
+  border-radius: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: fit-content;
+  width: 120px;
+  text-align: center;
+}
+
+.elven-town-button {
+  height: fit-content;
+  width: 100px;
+  padding: 2px;
+  border-radius: 15px;
+  border: solid grey;
+  color: grey;
+  background-color: darkgray;
+  opacity: 0.7;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: url('/wallpers/sword.svg'),auto;
+}
+.elven-town-button:hover {
+  border: solid goldenrod;
+  color: goldenrod;
+  background-color: green;
+  opacity: 1;
+}
+.elven-leavebutton {
+  position: absolute;
+  padding: 2px;
+  border: solid grey;
+  color: grey;
+  background-color: darkgray;
+  opacity: 0.7;
+  border-radius: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: fit-content;
+  width: fit-content;
+  left: 30%;
+  top: 10px;
+}
+.elven-leavebutton:hover {
+  border: solid darkred;
+  color: darkred;
+  opacity: 1;
+  background-color: black;
+  cursor: url('/wallpers/sword.svg'),auto;
+
+  }

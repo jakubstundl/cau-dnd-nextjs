@@ -1,0 +1,157 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String  @unique
+  type               String
+  provider           String
+  providerAccountId  String  @default(uuid())
+  refresh_token      String? @db.VarChar(300)
+  access_token       String? @db.VarChar(300)
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String? @db.VarChar(10000)
+  session_state      String?
+  verification_token String? @db.VarChar(300)
+  user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String              @id @default(cuid())
+  name          String
+  email         String              @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  accounts      Account[]
+  sessions      Session[]
+  premium       Premium_Membership?
+}
+
+model Class {
+  name        String
+  id          Int                @id @default(autoincrement())
+  description String             @db.VarChar(255)
+  longer_desc String?            @db.VarChar(500)
+  spells      SpellsForClasses[]
+}
+
+model Race {
+  name        String
+  id          Int     @id @default(autoincrement())
+  description String  @db.VarChar(255)
+  dex         Int
+  str         Int
+  con         Int
+  int         Int
+  wis         Int
+  char        Int
+  longer_desc String? @db.VarChar(500)
+}
+
+model Spell {
+  name        String             @unique
+  id          Int                @id @default(autoincrement())
+  description String             @db.VarChar(500)
+  damage      Int
+  cooldown    Int
+  classes     SpellsForClasses[]
+}
+
+model SpellsForClasses {
+  spellId Int
+  classId Int
+  spell   Spell @relation(fields: [spellId], references: [id])
+  class   Class @relation(fields: [classId], references: [id])
+
+  @@id([spellId, classId])
+}
+
+model Characters {
+  id        Int                   @id @default(autoincrement())
+  name      String                @db.VarChar(20)
+  owner_id  String                @db.VarChar(50)
+  maxHP     Int
+  currentHP Int
+  str       Int
+  dex       Int
+  con       Int
+  int       Int
+  wis       Int
+  char      Int
+  class     String
+  race      String
+  quests    QuestsForCharacters[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Premium_Membership {
+  id       String   @id @default(cuid())
+  userId   String   @unique
+  paidDate DateTime
+  status   String
+  user     User     @relation(fields: [userId], references: [id])
+}
+
+model NPC {
+  id     String @id @default(cuid())
+  name   String
+  posX   Int
+  posY   Int
+  img    String
+  dmg    Int
+  power  Int
+  cur_hp Int
+  exp    Int
+  hp     Int
+}
+
+model ForgotenPassword {
+  id         Int      @id @default(autoincrement())
+  token      String
+  expiration DateTime
+  email      String   @db.VarChar(50)
+}
+
+model Quest {
+  id          Int                   @id @default(autoincrement())
+  description String
+  objective   String
+  characters  QuestsForCharacters[]
+}
+
+model QuestsForCharacters {
+  questId   Int
+  charId    Int
+  completed Boolean?
+  quest     Quest      @relation(fields: [questId], references: [id])
+  character Characters @relation(fields: [charId], references: [id])
+
+  @@id([questId, charId])
+}

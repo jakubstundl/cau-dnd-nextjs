@@ -1,0 +1,84 @@
+.elven{
+    width: fit-content;
+    height: fit-content;
+    background-color: darkgoldenrod;
+    padding: 2px;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid black;
+}
+.elven:disabled{
+    opacity:0.5;
+    background-color: gray;
+}
+.human{
+    width: fit-content;
+    height: fit-content;
+    background-color: darkgoldenrod;
+    padding: 2px;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid black;
+}
+.human:disabled{
+    opacity:0.5;
+    background-color: gray;
+}
+.necro{
+    width: fit-content;
+    height: fit-content;
+    background-color: darkgoldenrod;
+    padding: 2px;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid black;
+}
+.necro:disabled{
+    opacity:0.5;
+    background-color: gray;
+}
+.dung{
+    width: fit-content;
+    height: fit-content;
+    background-color: darkgoldenrod;
+    padding: 2px;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid black;
+}
+.dung:disabled{
+    opacity:0.5;
+    background-color: gray;
+}
+.dragon{
+    width: fit-content;
+    height: fit-content;
+    background-color: darkgoldenrod;
+    padding: 2px;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid black;
+}
+.dragon:disabled{
+    opacity:0.5;
+    background-color: gray;
+}
+.ironforge{
+    width: fit-content;
+    height: fit-content;
+    background-color: darkgoldenrod;
+    padding: 2px;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid black;
+}
+.ironforge:disabled{
+    opacity:0.5;
+    background-color: gray;
+}

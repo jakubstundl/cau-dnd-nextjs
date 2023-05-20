@@ -1,0 +1,18 @@
+.container{
+    position: absolute;
+    right: 30%;
+    bottom: 5%;
+    width: 30%;
+    height: 80%;
+    background-color:darkolivegreen;
+    border: solid goldenrod;
+    border-radius: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: grid;
+    grid-template-rows: 1fr 80% repeat(3, 1fr);
+    padding: 10px;
+    box-shadow: 5px 5px 5px 5px;
+    cursor: url('/wallpers/sword.svg'),auto;
+}
